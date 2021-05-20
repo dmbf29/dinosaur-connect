@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-resources :parks, only: [:show] do
-  resources :dinosaurs, only: [:new, :create]
+  resources :parks, only: [:show] do
+    resources :dinosaurs, only: [:new, :create]
+  end
+  resources :dinosaurs, only: [:destroy] do
+    resources :profiles, only: [:new, :create]
+  end
 end
-resources :dinosaurs, only: [:destroy]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-end
+
+
+# get "dinosaurs/5/profiles/new"
+# post "dinosaurs/5/profiles"

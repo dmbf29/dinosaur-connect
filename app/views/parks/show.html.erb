@@ -13,6 +13,14 @@
         <%= link_to dinosaur_path(dinosaur), method: :delete, data: { confirm: "Destroy #{dinosaur.name}?" }, class: 'card-remove-link' do %>
           <i class="fas fa-meteor"></i>
         <% end %>
+        <%= link_to new_dinosaur_profile_path(dinosaur), class: 'card-add-link' do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
+        <div class="card-tags">
+          <% dinosaur.powers.each do |power| %>
+            <span><%= power.name %></span>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

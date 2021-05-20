@@ -1,5 +1,14 @@
 puts "Destroying all parks..."
 Park.destroy_all
+Power.destroy_all
+
+puts 'Creating powers...'
+20.times do
+  Power.create!(
+    name: Faker::Superhero.unique.power
+  )
+end
+puts "... created #{Power.count} powers."
 
 puts "Creating all parks..."
 happy_land = Park.create!(
@@ -19,7 +28,7 @@ Park.create!(
 
 Dinosaur.create!(
   name: "Joseasaurus",
-  image_url: 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1618627703/exryfur10yoitc6uvdc2.jpg'
+  image_url: 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1618627703/exryfur10yoitc6uvdc2.jpg',
   park: happy_land
 )
 
