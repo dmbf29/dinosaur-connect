@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2021_05_20_081408) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "dinosaurs", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
-    t.integer "park_id", null: false
+    t.bigint "park_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["park_id"], name: "index_dinosaurs_on_park_id"
@@ -35,8 +38,8 @@ ActiveRecord::Schema.define(version: 2021_05_20_081408) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "dinosaur_id", null: false
-    t.integer "power_id", null: false
+    t.bigint "dinosaur_id", null: false
+    t.bigint "power_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dinosaur_id"], name: "index_profiles_on_dinosaur_id"
