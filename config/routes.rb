@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :dinosaurs, only: [:destroy] do
     resources :profiles, only: [:new, :create]
   end
+  # do this on your movie watch list
+  # root to: 'lists#index'
 end
 
 
