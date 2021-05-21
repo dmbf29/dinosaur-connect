@@ -8,7 +8,7 @@
   <h3>Dinosaurs</h3>
   <div class="cards">
     <% @park.dinosaurs.each do |dinosaur| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= dinosaur.image_url %>)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= dinosaur.photo.attached? ? cl_image_path(dinosaur.photo.key) : image_path(dinosaur.image_url) %>)">
         <%= dinosaur.name %>
         <%= link_to dinosaur_path(dinosaur), method: :delete, data: { confirm: "Destroy #{dinosaur.name}?" }, class: 'card-remove-link' do %>
           <i class="fas fa-meteor"></i>
